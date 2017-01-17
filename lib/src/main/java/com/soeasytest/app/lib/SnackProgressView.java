@@ -113,7 +113,7 @@ public class SnackProgressView extends View {
 
     public void setProgress(float progress) {
         this.progress = progress;
-        if (progress / max >= 1) {
+        if (progress / max > 1) {
             return;
         }
         invalidate();
