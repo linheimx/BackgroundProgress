@@ -10,23 +10,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.soeasytest.app.backgroundprogress.MainActivity">
 
-    <LinearLayout
+    <com.soeasytest.app.lib.SnackProgressView
+        android:id="@+id/snack"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="btn1"
-            android:text="SnackProgressView" />
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="btn2"
-            android:text="BackgroundProgess" />
-
-    </LinearLayout>
+        android:layout_height="100dp" />
 
 </RelativeLayout>
