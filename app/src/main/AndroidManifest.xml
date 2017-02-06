@@ -15,8 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SnackProgressActivity" />
-        <activity android:name=".BackgroundProgressActivity"></activity>
+        <activity android:name=".BpNoTxt_Activity" />
+        <activity android:name=".BpTxt_Activity" />
+        <activity android:name=".BpNoGradient_Activity"></activity>
     </application>
 
 </manifest>

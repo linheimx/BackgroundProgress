@@ -14,8 +14,9 @@ import android.view.View;
  * Created by LJIAN on 2017/1/17.
  */
 
-public class SnackProgressView extends View {
+public class BackgroundProgressView extends View {
 
+    boolean _isGradient = true;
 
     int _w, _h;//整个view的宽高
     int _pw;//进度条的宽
@@ -25,20 +26,17 @@ public class SnackProgressView extends View {
     Paint paint_pb, paint_txt;
     float txtHeight, txtWidth;
 
-    final int[] SECTION_COLORS = {Color.GREEN, Color.YELLOW, Color.RED};
-
-
-    public SnackProgressView(Context context) {
+    public BackgroundProgressView(Context context) {
         super(context);
         init(context);
     }
 
-    public SnackProgressView(Context context, AttributeSet attrs) {
+    public BackgroundProgressView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public SnackProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public BackgroundProgressView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -49,7 +47,7 @@ public class SnackProgressView extends View {
 
         // paint
         paint_pb = new Paint(Paint.ANTI_ALIAS_FLAG);
-        paint_pb.setColor(Color.YELLOW);
+        paint_pb.setColor(Color.GREEN);
 
         paint_txt = new Paint(Paint.ANTI_ALIAS_FLAG);
         paint_txt.setTextSize(dipToPx(15));
@@ -98,13 +96,25 @@ public class SnackProgressView extends View {
     }
 
     private void notifyChanged() {
-        LinearGradient linearGradient = new LinearGradient(0, _h, _w, _h, Color.GREEN, Color.RED, Shader.TileMode.CLAMP);
-        paint_pb.setShader(linearGradient);
+
+        if (_isGradient) {
+            LinearGradient linearGradient = new LinearGradient(0, _h, _w, _h, Color.GREEN, Color.RED, Shader.TileMode.CLAMP);
+            paint_pb.setShader(linearGradient);
+        }
+
         paint_pb.setAlpha(100);
 
         _pw = _w - (int) (txtWidth * 1.2);
     }
 
+
+    public boolean is_isGradient() {
+        return _isGradient;
+    }
+
+    public void set_isGradient(boolean _isGradient) {
+        this._isGradient = _isGradient;
+    }
 
     public void setMax(float max) {
         this.max = max;

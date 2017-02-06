@@ -17,11 +17,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btn1(View view){
-        startActivity(new Intent(this,SnackProgressActivity.class));
+        startActivity(new Intent(this,BpNoTxt_Activity.class));
     }
 
     public void btn2(View view){
-        startActivity(new Intent(this,BackgroundProgressActivity.class));
+        startActivity(new Intent(this,BpTxt_Activity.class));
     }
 
+    public void btn3(View view){
+        startActivity(new Intent(this,BpNoGradient_Activity.class));
+    }
 }

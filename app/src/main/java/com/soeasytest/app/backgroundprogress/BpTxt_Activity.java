@@ -4,21 +4,19 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.soeasytest.app.lib.SnackProgressView;
+import com.soeasytest.app.lib.BackgroundProgress;
 
-public class SnackProgressActivity extends AppCompatActivity {
+public class BpTxt_Activity extends AppCompatActivity {
 
-    SnackProgressView snackProgressView;
-
+    BackgroundProgress backgroundProgress;
     Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_snack_progress);
+        setContentView(R.layout.activity_background_progress);
 
-        snackProgressView = (SnackProgressView) findViewById(R.id.snack);
-
+        backgroundProgress=(BackgroundProgress) findViewById(R.id.back);
         go();
     }
 
@@ -26,10 +24,13 @@ public class SnackProgressActivity extends AppCompatActivity {
 
     void go() {
         i++;
-        snackProgressView.setProgress(i);
+        backgroundProgress.setProgress(i);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
+                if (i == 100) {
+                    return;
+                }
                 go();
             }
         }, 100);
